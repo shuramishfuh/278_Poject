@@ -116,7 +116,5 @@ let plantSchema = new Schema({
     });
 
 let Model = mongoose.model("plant",plantSchema);
-mongoose.connect("mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false");
-
 exports.schema = plantSchema;
-exports.mongooseDB = mongoose;
+
