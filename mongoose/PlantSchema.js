@@ -26,7 +26,7 @@ const lifeSpan = ["<25(years)", "25-50(years)", ">50(years)"]
 
 
 let plantSchema = new Schema({
-        _someId: Schema.Types.ObjectId,
+        _Id: Schema.Types.ObjectId,
 
         basicInfo: {
 
