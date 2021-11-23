@@ -3,14 +3,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let replyEmailSchema = new Schema({
-    _id:Schema.Types.ObjectId,
+    _id: Schema.Types.ObjectId,
     messageReplyingTo: String,
-    replyMessage:{
-        type:String,
-        required:true
+    date: {type: Date, default: Date.now()},
+    replyMessage: {
+        type: String,
+        required: true
     }
 
-    });
+});
 
 let inquireSchema = new Schema({
     _Id: Schema.Types.ObjectId,
@@ -19,6 +20,7 @@ let inquireSchema = new Schema({
         required: true,
         min: 4,
     },
+    date: {type: Date, default: Date.now()},
     inquireName: {
         type: String,
         required: true,
@@ -37,10 +39,10 @@ let inquireSchema = new Schema({
         min: 3,
     },
     emailViewed: {
-        type:Schema.Types.Boolean,
-        required:true
+        type: Schema.Types.Boolean,
+        required: true
     },
-    replies:[replyEmailSchema]
+    replies: [replyEmailSchema]
 }, {collection: "inquire"});
 
 exports.inquireSchema = inquireSchema;

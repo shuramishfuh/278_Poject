@@ -13,7 +13,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 let db = mongooseDB.connection
 
-
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
     console.log("DB check Success");
