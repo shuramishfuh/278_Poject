@@ -1,7 +1,16 @@
 const mongoose = require('mongoose');
-const {replyEmailSchema }= require('./replyEmailSchema');
+// let Model = mongoose.model("plant",plantSchema);
 const Schema = mongoose.Schema;
 
+let replyEmailSchema = new Schema({
+    _id:Schema.Types.ObjectId,
+    messageReplyingTo: String,
+    replyMessage:{
+        type:String,
+        required:true
+    }
+
+    });
 
 let inquireSchema = new Schema({
     _Id: Schema.Types.ObjectId,
@@ -33,3 +42,6 @@ let inquireSchema = new Schema({
     },
     replies:[replyEmailSchema]
 }, {collection: "inquire"});
+
+exports.inquireSchema = inquireSchema;
+exports.replyEmailSchema = replyEmailSchema;
