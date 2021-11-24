@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// let Model = mongoose.model("plant",plantSchema);
+const {flatten} = require("express/lib/utils");
 const Schema = mongoose.Schema;
 
 let replyEmailSchema = new Schema({
@@ -25,7 +25,7 @@ let inquireSchema = new Schema({
         type: String,
         required: true,
         min: 3,
-        max: 255
+        max: 150
     },
     inquireTitle: {
         type: String,
@@ -39,8 +39,8 @@ let inquireSchema = new Schema({
         min: 3,
     },
     emailViewed: {
-        type: Schema.Types.Boolean,
-        required: true
+        type: Boolean,
+       default:false
     },
     replies: [replyEmailSchema]
 }, {collection: "inquire"});
