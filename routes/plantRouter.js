@@ -1,8 +1,8 @@
 const cors = require("cors");
-const
-    {plantSchema} = require("../mongoose/PlantSchema"),
-    {replyEmailSchema, inquireSchema} = require("../mongoose/inquirelSchema"),
-    {mongooseDB} = require("../mongoose/mongooseDbconnect");
+// const
+//     {plantSchema} = require("../mongoose/PlantSchema"),
+//     {replyEmailSchema, inquireSchema} = require("../mongoose/inquirelSchema"),
+//     {mongooseDB} = require("../mongoose/mongooseDbconnect");
 
 let itemStore = [`start`, 12];
 

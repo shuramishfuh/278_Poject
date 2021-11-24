@@ -1,13 +1,9 @@
 const cors = require("cors"),
-    // {replyEmailSchema, inquireSchema} = require("../mongoose/inquirelSchema"),
-    {mongooseDB} = require("../mongoose/mongooseDbconnect"),
-    {JoiInquireSchema, JoiReplyEmail} = require("../Joi/JoiEmailValidate");
+    Emails = require("../mongoose/inquirelSchema");
 
-
-let itemStore = [`email`, 12];
-
-
-module.exports = function (app) {
+module.exports = function (app, mongooseDB) {
+    let Email = mongooseDB.model("Email", Emails.emailSchema);
+    let reply = mongooseDB.model("reply", Emails.replyEmailSchema);
     app.get(`/email`, async function (req, res) {
         res.json("welcome to email");
     });
@@ -19,8 +15,51 @@ module.exports = function (app) {
 
 
     app.post('/email', cors(), async function (req, res) {
-        // res.json(req.body);
-        res.send("post");
+
+        let userId;
+        let email = new Email({
+            inquireEmail: req.body.email,
+            inquireName: req.body.name,
+            inquireTitle: req.body.title,
+            inquireMessage: req.body.message,
+        });
+        try {
+            await email.validate();
+            userId = await email.save();
+        } catch (err) {
+            res.status(400).send(err.message);
+            res.end;
+        }
+
+
+        res.status(200).json(userId);
+    });
+
+    app.post('/email/reply', cors(), async function (req, res) {
+
+        let replyEmail = new reply({
+            replyTo: req.body.id,
+            Message: req.body.message,
+        });
+        try {
+            await replyEmail.validate();
+            const email = await Email.findByIdAndUpdate(req.body.id,
+                {
+                    "$push": {"replies": replyEmail},
+                    "$set": {"emailViewed": true}
+                },
+                {"new": true, "upsert": true},
+            )
+            if (email) {
+
+                res.json(email);
+            } else
+                res.status(400).json("not");
+        } catch (err) {
+            res.status(400).send(err.message);
+            res.end;
+        }
+
     });
 
 

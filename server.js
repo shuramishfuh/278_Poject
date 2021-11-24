@@ -2,9 +2,7 @@ const port = process.env.PORT || 3000,
     express = require('express'),
     bodyParser = require("body-parser"),
     {mongooseDB} = require("./mongoose/mongooseDbconnect"),
-    plantRouter = require("./routes/plantRouter"),
     app = express();
-const cors = require("cors");
 
 app.use(bodyParser.json());
 app.use(express.static("Public"));
@@ -21,7 +19,7 @@ db.once('open', function () {
     app.get('/', async function (req, res) {
         res.json("welcome");
     });
-    require("./routes/emailRouter")(app)
+    require("./routes/emailRouter")(app,mongooseDB)
     require("./routes/plantRouter")(app)
 
     app.listen(port, () => console.log(`live on ${port}`))
