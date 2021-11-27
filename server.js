@@ -20,6 +20,7 @@ db.once('open', function () {
         res.json("welcome");
     });
     require("./routes/emailRouter")(app,mongooseDB)
+    require("./routes/helperRoute")(app,mongooseDB)
     require("./routes/plantRouter")(app)
 
     app.listen(port, () => console.log(`live on ${port}`))
