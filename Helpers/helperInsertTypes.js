@@ -1,10 +1,8 @@
+const {helperSchema} = require("../mongoose/helperSchema");
 module.exports = async function (mongooseDB) {
 
 
-    let helper = mongooseDB.model("helper", {
-        name: {required: true, type: String},
-        values: {required: true, type: [String]}
-    })
+    let helper = mongooseDB.model("helper", helperSchema)
     helper.collection.stats(async function (err, results) {
         if (err) {
             console.log(err);
@@ -13,7 +11,6 @@ module.exports = async function (mongooseDB) {
         if (results.count === 0) {
 
             await helper.insertMany([
-                {name: "water", values: ["high", "moderate", "low"]},
                 {name: "water", values: ["high", "moderate", "low"]},
                 {
                     name: "plantType",
