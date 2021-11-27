@@ -16,12 +16,16 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
     console.log("DB check Success");
 
+    // insert helper names and values
+  require("./Helpers/helperInsertTypes")(mongooseDB)
+
     app.get('/', async function (req, res) {
         res.json("welcome");
     });
     require("./routes/emailRouter")(app,mongooseDB)
     require("./routes/helperRoute")(app,mongooseDB)
     require("./routes/plantRouter")(app)
+
 
     app.listen(port, () => console.log(`live on ${port}`))
 });

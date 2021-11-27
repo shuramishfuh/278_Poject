@@ -29,75 +29,75 @@ const water = ["high", "moderate", "low"],
 
 module.exports = function (app, mongooseDB) {
 
-    app.get(`/helper/water`, async function (req, res) {
+    app.get(`/helper/water`, cors(), async function (req, res) {
         res.status(200).json(water)
     });
 
-    app.get(`/helper/plantType`, async function (req, res) {
+    app.get(`/helper/plantType`, cors(), async function (req, res) {
         res.status(200).json(plantType)
     });
 
-    app.get(`/helper/light`, async function (req, res) {
+    app.get(`/helper/light`, cors(), async function (req, res) {
         res.status(200).json(light)
     });
-    app.get(`/helper/soil`, async function (req, res) {
+    app.get(`/helper/soil`, cors(), async function (req, res) {
         res.status(200).json(soil)
     });
-    app.get(`/helper/soil`, async function (req, res) {
+    app.get(`/helper/soil`, cors(), async function (req, res) {
         res.status(200).json(soil)
     });
-    app.get(`/helper/soilPH`, async function (req, res) {
+    app.get(`/helper/soilPH`, cors(), async function (req, res) {
         res.status(200).json(soilPH)
     });
-    app.get(`/helper/yesOrNo`, async function (req, res) {
+    app.get(`/helper/yesOrNo`, cors(), async function (req, res) {
         res.status(200).json(yesOrNo)
     });
-    app.get(`/helper/lifeCycle`, async function (req, res) {
+    app.get(`/helper/lifeCycle`, cors(), async function (req, res) {
         res.status(200).json(lifeCycle)
     });
-    app.get(`/helper/outDoorUse`, async function (req, res) {
+    app.get(`/helper/outDoorUse`, cors(), async function (req, res) {
         res.status(200).json(outDoorUse)
     });
-    app.get(`/helper/specialized`, async function (req, res) {
+    app.get(`/helper/specialized`, cors(), async function (req, res) {
         res.status(200).json(specialized)
     });
-    app.get(`/helper/nativeEnvironment`, async function (req, res) {
+    app.get(`/helper/nativeEnvironment`, cors(), async function (req, res) {
         res.status(200).json(nativeEnvironment)
     });
-    app.get(`/helper/HumanUse`, async function (req, res) {
+    app.get(`/helper/HumanUse`, cors(), async function (req, res) {
         res.status(200).json(HumanUse)
     });
-    app.get(`/helper/building`, async function (req, res) {
+    app.get(`/helper/building`, cors(), async function (req, res) {
         res.status(200).json(building)
     });
-    app.get(`/helper/canopy_Shape`, async function (req, res) {
+    app.get(`/helper/canopy_Shape`, cors(), async function (req, res) {
         res.status(200).json(canopy_Shape)
     });
-    app.get(`/helper/timeToUltimateHeight`, async function (req, res) {
+    app.get(`/helper/timeToUltimateHeight`, cors(), async function (req, res) {
         res.status(200).json(timeToUltimateHeight)
     });
-    app.get(`/helper/growthRate`, async function (req, res) {
+    app.get(`/helper/growthRate`, cors(), async function (req, res) {
         res.status(200).json(growthRate)
     });
-    app.get(`/helper/persistence`, async function (req, res) {
+    app.get(`/helper/persistence`, cors(), async function (req, res) {
         res.status(200).json(persistence)
     });
-    app.get(`/helper/scent`, async function (req, res) {
+    app.get(`/helper/scent`, cors(), async function (req, res) {
         res.status(200).json(scent)
     });
-    app.get(`/helper/season`, async function (req, res) {
+    app.get(`/helper/season`, cors(), async function (req, res) {
         res.status(200).json(season)
     });
-    app.get(`/helper/fruitType`, async function (req, res) {
+    app.get(`/helper/fruitType`, cors(), async function (req, res) {
         res.status(200).json(fruitType)
     });
-    app.get(`/helper/trunkEstheticValue`, async function (req, res) {
+    app.get(`/helper/trunkEstheticValue`, cors(), async function (req, res) {
         res.status(200).json(trunkEstheticValue)
     });
-    app.get(`/helper/pruningRequirement`, async function (req, res) {
+    app.get(`/helper/pruningRequirement`, cors(), async function (req, res) {
         res.status(200).json(pruningRequirement)
     });
-    app.get(`/helper/lifeSpan`, async function (req, res) {
+    app.get(`/helper/lifeSpan`, cors(), async function (req, res) {
         res.status(200).json(lifeSpan)
     });
 
