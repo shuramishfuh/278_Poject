@@ -27,7 +27,6 @@ const lifeSpan = ["<25(years)", "25-50(years)", ">50(years)"]
 
 let plantSchema = new Schema({
         _Id: Schema.Types.ObjectId,
-
         basicInfo: {
 
             annualTemperature: {type: Number, required: true},
@@ -37,16 +36,16 @@ let plantSchema = new Schema({
             imgSrc: {type: String, required: true},
             description: {type: String, required: true, min: 5},
             Pronounciation: {type: String, required: true, min: 5},
-            country: {type: [String], required: true, min: 3},
             scientific_name: {type: String, required: true, min: 5},
             common_name: {type: String, required: true, min: 5},
             CommonArabicName: {type: String,  min: 5},
             CommonFrenchName: {type: String,  min: 5},
-            type: {name: {type: String, required: true, enum: plantType}},
+            type:  {type: String, required: true, enum: plantType},
             light: {type: String, enum: light, required: true},
             soilPH: {type: String, enum: soilPH, required: true},
             soil: {type: String, enum: soil, required: true},
-            water: {type: [String], required: true, enum: water},
+            water: {type: String, required: true, enum: water},
+
             Tolerance: {
                     Heat: {type: String, required: true, enum: yesOrNo},
                     Drought: {type: String, required: true, enum: yesOrNo},
@@ -64,15 +63,11 @@ let plantSchema = new Schema({
 
         },
         shapeSize: {
-            size: {type: String, required: true, min: 3},
-            canopy_Shape: {
-                name: {type: String, required: true, enum: canopy_Shape}
-            },
+            size: {type: Number, required: true, min: 3},
+            canopy_Shape: {type: String, required: true, enum: canopy_Shape},
             PlantHeight: {type: Number, required: true,},
             spread: {type: Number, required: true,},
-            timeTOUltimateHeight: {
-                type: String, enum: timeToUltimateHeight, required: true
-            },
+            timeTOUltimateHeight: {type: String, enum: timeToUltimateHeight, required: true},
             growthRate: {type: String, required: true, enum: growthRate}
         },
         margins: {type: String, required: true, min: 3},
@@ -80,25 +75,25 @@ let plantSchema = new Schema({
         leaf: {
             color_in_Growing_Season: {type: String, required: true, min: 3},
             color_in_changing_Season: {type: String, required: true, min: 3},
-            persistence: {type: [String], required: true, enum: persistence},
-            scent: {type: [String], required: true, enum: scent},
+            persistence: {type: String, required: true, enum: persistence},
+            scent: {type: String, required: true, enum: scent},
         },
         flower: {
             color: {type: String, required: true, min: 5},
-            scent: {type: [String], required: true, enum: scent},
+            scent: {type: String, required: true, enum: scent},
             Blade_Length: {type: String, required: true, min: 3},
-            season: {type: [String], required: true, enum: season},
-            showiness: {type: [String], required: true, enum: yesOrNo},
-            flower_img: {data: Buffer, contentType: String}
+            season: {type: String, required: true, enum: season},
+            showiness: {type: String, required: true, enum: yesOrNo},
+            flower_img: {type: String, contentType: String}
         },
         fruit: {
             color: {type: String, required: true, min: 5},
             size: {type: Number, required: true},
-            season: {type: [String], required: true, enum: season},
-            showiness: {type: [String], required: true, enum: yesOrNo},
+            season: {type: String, required: true, enum: season},
+            showiness: {type: String, required: true, enum: yesOrNo},
             type: {type: String, enum: fruitType}
         },
-        Trunk: {type: String, enum: trunkEstheticValue, required: true},
+        trunk: {type: String, enum: trunkEstheticValue, required: true},
         management: {
             ediblePlantParts: {required: true, type: String, enum: yesOrNo},
             FruitOrLeavesOrFlower_litter: {required: true, type: String, enum: yesOrNo},
@@ -110,11 +105,6 @@ let plantSchema = new Schema({
             surfaceRooting: {required: true, type: String, enum: yesOrNo},
         }
 
-    },
-    {
-        collection: 'Flowers'
     });
-
-let Model = mongoose.model("plant",plantSchema);
-exports.schema = plantSchema;
+exports.plantSchema = plantSchema;
 

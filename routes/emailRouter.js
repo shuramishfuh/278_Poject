@@ -5,6 +5,8 @@ const cors = require("cors"),
 module.exports = function (app, mongooseDB) {
     let Email = mongooseDB.model("Email", Emails.emailSchema);
     let reply = mongooseDB.model("reply", Emails.replyEmailSchema);
+
+
     app.get(`/email`, async function (req, res) {
         let emails = await Email.find({});
         res.json(emails);
@@ -47,17 +49,22 @@ module.exports = function (app, mongooseDB) {
             let email = await Email.find({_id: req.body.id});
 
             let mailOptions = {
-                from: 'javonte.mcglynn79@ethereal.email',
+                from: '278projectplant@gmail.com',
                 to: Object.values(email)[0].get("inquireEmail"),
                 subject: Object.values(email)[0].get("inquireTitle"),
-                text: Object.values(email)[0].get("inquireMessage")
+                html: "<h3 style='align-content: center; color: cadetblue'> 278ProjectPlant</h3><hr>"+
+                       " <h5 style='color: black'>"+req.body.message+"</h5>"
+                       + "<br>"
+                        +"<hr>"
+                       +" <h5 style='color: indigo; font-weight: bold '>Thanks for reaching out</h5>  "+
+                       " <h5 style='color: goldenrod; font-weight: bold '>278ProjectPlant</h5>  "+
+                    "<h5>(c)opyright 2021 -2025</h5>"
             };
             const transporter = nodemailer.createTransport({
-                host: 'smtp.ethereal.email',
-                port: 587,
+                service: 'gmail',
                 auth: {
-                    user: 'javonte.mcglynn79@ethereal.email',
-                    pass: '2Qry2mwfB6v58tmFMG'
+                    user: '278projectplant@gmail.com',
+                    pass: '1qa2ws3ed!@#'
                 }
             });
 
