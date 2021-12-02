@@ -11,6 +11,18 @@ module.exports = function (app, mongooseDB,Url) {
         res.json(plants);
     });
 
+    // get short info of plants
+   app.get(`/plant/short`, async function (req, res) {
+        let plants = await Plant.find({},{
+            _id:1,
+            basicInfo:1,
+            use:1,
+            management:1
+        });
+        res.json(plants);
+    });
+
+
     // get plant by ID
     app.get(`/plant/find`, async function (req, res) {
         const queryObject = url.parse(req.url, true).query;
