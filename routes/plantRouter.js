@@ -1,17 +1,34 @@
 const cors = require("cors"),
     PlantSchema = require("../mongoose/PlantSchema");
 
-module.exports = function (app, mongooseDB) {
+module.exports = function (app, mongooseDB,Url) {
     let Plant = mongooseDB.model("Plant", PlantSchema.plantSchema);
 
+
+    // return all about all plants
     app.get(`/plant`, async function (req, res) {
         let plants = await Plant.find({});
         res.json(plants);
     });
 
-    // app.get('/email/find', cors(), async function (req, res) {
-    //     let emails = await Plant.find({_id: req.body.id});
-    //     res.json(emails);
+    // get plant by ID
+    app.get(`/plant/find`, async function (req, res) {
+        const queryObject = url.parse(req.url, true).query;
+        if (queryObject.id === undefined) {
+            return res.status(400).json();
+            res.end;
+        } else {
+            let plants = await Plant.find({_id: queryObject.id});
+
+            res.json(plants);
+            res.end;
+        }
+
+    });
+
+    // app.get('/plant/find', cors(), async function (req, res) {
+    //     // let emails = await Plant.find({_id: req.body.id});
+    //     res.json(req.body.search);
     // });
 
     app.post('/plant', cors(), async function (req, res) {
@@ -43,7 +60,6 @@ module.exports = function (app, mongooseDB) {
                 },
                 lifeCycle: req.body.basicInfo.lifeCycle,
             },
-
 
 
             use: {
@@ -106,26 +122,23 @@ module.exports = function (app, mongooseDB) {
             res.status(400).send(err.message);
             res.end;
         }
-
-
         res.status(200).json(plantId);
-        // res.status(200).json(req.body.basicInfo.annualTemperature);
     });
 
 
-    // app.delete('/email', cors(), async function (req, res) {
-    //     try {
-    //         const result = await Email.findByIdAndDelete(req.body.id);
-    //         if (result) {
-    //             res.status(200).json(result);
-    //             res.end;
-    //         } else {
-    //             res.status(400);
-    //             res.end;
-    //         }
-    //     } catch (err) {
-    //         res.status(400).send(err.message);
-    //         res.end;
-    //     }
-    // });
+    app.delete('/plant', cors(), async function (req, res) {
+        try {
+            const result = await Plant.findByIdAndDelete(req.body.id);
+            if (result) {
+                res.status(200).json(result);
+                res.end;
+            } else {
+                res.status(400);
+                res.end;
+            }
+        } catch (err) {
+            res.status(400).send(err.message);
+            res.end;
+        }
+    });
 }

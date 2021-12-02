@@ -2,6 +2,7 @@ const port = process.env.PORT || 3000,
     express = require('express'),
     bodyParser = require("body-parser"),
     {mongooseDB} = require("./mongoose/mongooseDbconnect"),
+     url = require("url"),
     app = express();
 
 app.use(bodyParser.json());
@@ -23,9 +24,9 @@ db.once('open', function () {
     app.get('/', async function (req, res) {
         res.json("welcome");
     });
-    require("./routes/emailRouter")(app, mongooseDB)
+    require("./routes/emailRouter")(app, mongooseDB,url)
     require("./routes/helperRoute")(app, mongooseDB)
-    require("./routes/plantRouter")(app, mongooseDB)
+    require("./routes/plantRouter")(app, mongooseDB,url)
 
 
     app.listen(port, () => console.log(`live on ${port}`))

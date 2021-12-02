@@ -1,22 +1,34 @@
 const cors = require("cors"),
     Emails = require("../mongoose/inquirelSchema"),
     nodemailer = require('nodemailer');
+const url = require("url");
 
-module.exports = function (app, mongooseDB) {
+module.exports = function (app, mongooseDB,Url) {
     let Email = mongooseDB.model("Email", Emails.emailSchema);
     let reply = mongooseDB.model("reply", Emails.replyEmailSchema);
 
-
+    // get all emails
     app.get(`/email`, async function (req, res) {
         let emails = await Email.find({});
         res.json(emails);
     });
 
-    app.get('/email/find', cors(), async function (req, res) {
-        let emails = await Email.find({_id: req.body.id});
-        res.json(emails);
+    // find email by id
+    app.get(`/email/find`, async function (req, res) {
+        const queryObject = url.parse(req.url, true).query;
+        if (queryObject.id === undefined) {
+            return res.status(400).json();
+            res.end;
+        } else {
+            let email = await Email.find({_id: queryObject.id});
+
+            res.json(email);
+            res.end;
+        }
+
     });
 
+    // create email
     app.post('/email', cors(), async function (req, res) {
 
         let userId;
@@ -38,6 +50,7 @@ module.exports = function (app, mongooseDB) {
         res.status(200).json(userId);
     });
 
+    // create reply to email and send
     app.post('/email/reply', cors(), async function (req, res) {
 
         let replyEmail = new reply({ // reply
@@ -52,12 +65,12 @@ module.exports = function (app, mongooseDB) {
                 from: '278projectplant@gmail.com',
                 to: Object.values(email)[0].get("inquireEmail"),
                 subject: Object.values(email)[0].get("inquireTitle"),
-                html: "<h3 style='align-content: center; color: cadetblue'> 278ProjectPlant</h3><hr>"+
-                       " <h5 style='color: black'>"+req.body.message+"</h5>"
-                       + "<br>"
-                        +"<hr>"
-                       +" <h5 style='color: indigo; font-weight: bold '>Thanks for reaching out</h5>  "+
-                       " <h5 style='color: goldenrod; font-weight: bold '>278ProjectPlant</h5>  "+
+                html: "<h3 style='align-content: center; color: cadetblue'> 278ProjectPlant</h3><hr>" +
+                    " <h5 style='color: black'>" + req.body.message + "</h5>"
+                    + "<br>"
+                    + "<hr>"
+                    + " <h5 style='color: indigo; font-weight: bold '>Thanks for reaching out</h5>  " +
+                    " <h5 style='color: goldenrod; font-weight: bold '>278ProjectPlant</h5>  " +
                     "<h5>(c)opyright 2021 -2025</h5>"
             };
             const transporter = nodemailer.createTransport({
@@ -92,7 +105,7 @@ module.exports = function (app, mongooseDB) {
         }
 
     });
-
+    // delete email and replies
     app.delete('/email', cors(), async function (req, res) {
         try {
             const result = await Email.findByIdAndDelete(req.body.id);

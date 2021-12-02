@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-
-
     let replyEmailSchema = new mongoose.Schema({
         replyTo: String,
         date: {type: Date, default: Date.now()},
@@ -44,13 +42,6 @@ const mongoose = require('mongoose');
         replies: [replyEmailSchema]
     });
 
-
-//
-// let email = mongoose.model("email",inquireSchema)
-// let emailReply = mongoose.model("emailReply",replyEmailSchema)
-//
-// module.exports.emailModel = email;
-// module.exports.replyEmailModel = emailReply;
 module.exports.emailSchema = inquireSchema;
 module.exports.replyEmailSchema = replyEmailSchema;
 
