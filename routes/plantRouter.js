@@ -1,7 +1,7 @@
 const cors = require("cors"),
     PlantSchema = require("../mongoose/PlantSchema");
 
-module.exports = function (app, mongooseDB,Url) {
+module.exports = function (app, mongooseDB, Url) {
     let Plant = mongooseDB.model("Plant", PlantSchema.plantSchema);
 
 
@@ -12,12 +12,12 @@ module.exports = function (app, mongooseDB,Url) {
     });
 
     // get short info of plants
-   app.get(`/plant/short`, async function (req, res) {
-        let plants = await Plant.find({},{
-            _id:1,
-            basicInfo:1,
-            use:1,
-            management:1
+    app.get(`/plant/short`, async function (req, res) {
+        let plants = await Plant.find({}, {
+            _id: 1,
+            basicInfo: 1,
+            use: 1,
+            management: 1
         });
         res.json(plants);
     });
@@ -25,7 +25,7 @@ module.exports = function (app, mongooseDB,Url) {
 
     // get plant by ID
     app.get(`/plant/find`, async function (req, res) {
-        const queryObject = url.parse(req.url, true).query;
+        const queryObject = Url.parse(req.url, true).query;
         if (queryObject.id === undefined) {
             return res.status(400).json();
             res.end;
@@ -43,10 +43,60 @@ module.exports = function (app, mongooseDB,Url) {
     //     res.json(req.body.search);
     // });
 
+// update plant
+    app.put(`/plant`, async function (req, res) {
+        try {
+            // create new object then delete prior
+
+            let ReturnPlantId;
+            let plant = createPlant(req)
+            await plant.validate();
+            await Plant.findByIdAndDelete(req.body.id);
+            ReturnPlantId = await plant.save();
+            res.status(204).json(ReturnPlantId);
+            res.end;
+        } catch (err) {
+            res.status(400).send(err.message);
+            res.end;
+        }
+    });
+
+// create new plant
     app.post('/plant', cors(), async function (req, res) {
 
         let plantId;
-        let email = new Plant({
+        let plant = createPlant(req);
+
+        try {
+            await plant.validate();
+            plantId = await plant.save();
+        } catch (err) {
+            res.status(400).send(err.message);
+            res.end;
+        }
+        res.status(200).json(plantId);
+    });
+
+// delete plant
+    app.delete('/plant', cors(), async function (req, res) {
+        try {
+            const result = await Plant.findByIdAndDelete(req.body.id);
+            if (result) {
+                res.status(200).json(result);
+                res.end;
+            } else {
+                res.status(400);
+                res.end;
+            }
+        } catch (err) {
+            res.status(400).send(err.message);
+            res.end;
+        }
+    });
+
+// create new plant from request
+    function createPlant(req) {
+        return new Plant({
             basicInfo: {
                 annualTemperature: req.body.basicInfo.annualTemperature,
                 HeatZones: req.body.basicInfo.HeatZones,
@@ -126,31 +176,8 @@ module.exports = function (app, mongooseDB,Url) {
 
 
         });
-
-        try {
-            await email.validate();
-            plantId = await email.save();
-        } catch (err) {
-            res.status(400).send(err.message);
-            res.end;
-        }
-        res.status(200).json(plantId);
-    });
-
-
-    app.delete('/plant', cors(), async function (req, res) {
-        try {
-            const result = await Plant.findByIdAndDelete(req.body.id);
-            if (result) {
-                res.status(200).json(result);
-                res.end;
-            } else {
-                res.status(400);
-                res.end;
-            }
-        } catch (err) {
-            res.status(400).send(err.message);
-            res.end;
-        }
-    });
+    }
 }
+
+
+

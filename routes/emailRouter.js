@@ -1,7 +1,6 @@
 const cors = require("cors"),
     Emails = require("../mongoose/inquirelSchema"),
     nodemailer = require('nodemailer');
-const url = require("url");
 
 module.exports = function (app, mongooseDB,Url) {
     let Email = mongooseDB.model("Email", Emails.emailSchema);
@@ -15,7 +14,7 @@ module.exports = function (app, mongooseDB,Url) {
 
     // find email by id
     app.get(`/email/find`, async function (req, res) {
-        const queryObject = url.parse(req.url, true).query;
+        const queryObject = Url.parse(req.url, true).query;
         if (queryObject.id === undefined) {
             return res.status(400).json();
             res.end;
