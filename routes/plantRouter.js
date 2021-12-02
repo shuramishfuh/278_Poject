@@ -7,18 +7,24 @@ module.exports = function (app, mongooseDB, Url) {
 
     // return all about all plants
     app.get(`/plant`, async function (req, res) {
-        let plants = await Plant.find({});
+        const {page = 1, limit = 10} = req.query;
+        let plants = await Plant.find({})
+            .limit(limit * 1)
+            .skip((page - 1) * limit);
         res.json(plants);
     });
 
     // get short info of plants
     app.get(`/plant/short`, async function (req, res) {
+        const {page = 1, limit = 10} = req.query;
         let plants = await Plant.find({}, {
             _id: 1,
             basicInfo: 1,
             use: 1,
             management: 1
-        });
+        })
+            .limit(limit * 1)
+            .skip((page - 1) * limit)
         res.json(plants);
     });
 

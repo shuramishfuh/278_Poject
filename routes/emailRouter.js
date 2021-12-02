@@ -8,8 +8,10 @@ module.exports = function (app, mongooseDB, Url) {
 
     // get all emails
     app.get(`/email`, async function (req, res) {
+          const {page = 1, limit = 10} = req.query;
         let emails = await Email.find({});
-        res.json(emails);
+        res.json(emails).limit(limit * 1)
+            .skip((page - 1) * limit);
     });
 
     // find email by id
