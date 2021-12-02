@@ -2,7 +2,7 @@ const cors = require("cors"),
     Emails = require("../mongoose/inquirelSchema"),
     nodemailer = require('nodemailer');
 
-module.exports = function (app, mongooseDB,Url) {
+module.exports = function (app, mongooseDB, Url) {
     let Email = mongooseDB.model("Email", Emails.emailSchema);
     let reply = mongooseDB.model("reply", Emails.replyEmailSchema);
 
@@ -20,9 +20,13 @@ module.exports = function (app, mongooseDB,Url) {
             res.end;
         } else {
             let email = await Email.find({_id: queryObject.id});
-
-            res.json(email);
-            res.end;
+            if (email === undefined) {
+                res.status(200).json(email);
+                res.end;
+            } else {
+                res.status(404).json(email);
+                res.end;
+            }
         }
 
     });

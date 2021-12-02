@@ -31,9 +31,14 @@ module.exports = function (app, mongooseDB, Url) {
             res.end;
         } else {
             let plants = await Plant.find({_id: queryObject.id});
+            if (plants === undefined) {
+                res.status(200).json(plants);
+                res.end;
+            } else {
+                res.status(404).json(plants);
+                res.end;
+            }
 
-            res.json(plants);
-            res.end;
         }
 
     });
