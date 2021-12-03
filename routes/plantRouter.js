@@ -1,7 +1,7 @@
 const cors = require("cors"),
     PlantSchema = require("../mongoose/PlantSchema");
 
-module.exports = function (app, mongooseDB, Url) {
+module.exports = function (app, mongooseDB, Url,multer) {
     let Plant = mongooseDB.model("Plant", PlantSchema.plantSchema);
 
 
@@ -188,6 +188,8 @@ module.exports = function (app, mongooseDB, Url) {
 
         });
     }
+
+    
 }
 
 
