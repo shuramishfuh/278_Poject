@@ -80,8 +80,8 @@ module.exports = function (app, mongooseDB, Url, multer) {
             let plant = createPlant(req)
             await plant.validate();
             await Plant.findByIdAndDelete(req.body.id);
-            ReturnPlantId = await plant.save();
-            res.status(204).json(ReturnPlantId);
+            await plant.save();
+            res.status(204).json();
             res.end;
         } catch (err) {
             res.status(400).send(err.message);
@@ -102,7 +102,7 @@ module.exports = function (app, mongooseDB, Url, multer) {
             res.status(400).send(err.message);
             res.end;
         }
-        res.status(200).json(plantId);
+        res.status(201).json(plantId);
     });
 
 // delete plant
