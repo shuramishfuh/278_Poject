@@ -1,7 +1,7 @@
 const cors = require("cors"),
     PlantSchema = require("../mongoose/PlantSchema");
 
-module.exports = function (app, mongooseDB, Url,multer) {
+module.exports = function (app, mongooseDB, Url, multer) {
     let Plant = mongooseDB.model("Plant", PlantSchema.plantSchema);
 
 
@@ -30,7 +30,7 @@ module.exports = function (app, mongooseDB, Url,multer) {
 
 
     // get plant by ID
-    app.get(`/plant/find`, async function (req, res) {
+    app.get(`/plant/find/id`, async function (req, res) {
         const queryObject = Url.parse(req.url, true).query;
         if (queryObject.id === undefined) {
             return res.status(400).json();
@@ -49,10 +49,27 @@ module.exports = function (app, mongooseDB, Url,multer) {
 
     });
 
-    // app.get('/plant/find', cors(), async function (req, res) {
-    //     // let emails = await Plant.find({_id: req.body.id});
-    //     res.json(req.body.search);
-    // });
+// search plants
+    app.get('/plant/find', cors(), async function (req, res) {
+
+        let result;
+        let search = "{";
+        for (let key in req.body) {
+            if (req.body.hasOwnProperty(key)) {
+                let value = req.body[key];
+                search += `"${key}" : "${value}",`
+            }
+        }
+        search = search.slice(0, search.length - 1);
+        search += "}"
+        search = JSON.parse(search)
+        result = await Plant.find(search);
+
+        if (result.length !== 0) res.status(200).json(result);
+        else res.status(404).json(result);
+
+
+    });
 
 // update plant
     app.put(`/plant`, async function (req, res) {
@@ -189,7 +206,7 @@ module.exports = function (app, mongooseDB, Url,multer) {
         });
     }
 
-    
+
 }
 
 
