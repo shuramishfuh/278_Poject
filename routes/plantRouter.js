@@ -50,7 +50,7 @@ module.exports = function (app, mongooseDB, Url, multer) {
     });
 
 // search plants
-    app.get('/plant/find', cors(), async function (req, res) {
+    app.post('/plant/find', cors(), async function (req, res) {
 
         let result;
         let search = "{";
