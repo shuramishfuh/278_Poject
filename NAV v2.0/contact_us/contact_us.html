@@ -43,14 +43,6 @@
 					<input id="name" class="input100" type="text" name="name" placeholder="Enter your name...">
 					<span class="focus-input100"></span>
 				</div>
-				
-				<div class="wrap-input100 validate-input" data-validate="Company name is required">
-					<label class="label-input100" for="name">Company</label>
-					<input id="name" class="input100" type="text" name="name" placeholder="Enter the Company name...">
-					<span class="focus-input100"></span>
-				</div>
-				
-
 
 				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 					<label class="label-input100" for="email">Email Address</label>
@@ -70,7 +62,7 @@
 					<span class="focus-input100"></span>
 				</div>
 				
-				
+<!-- 				
 			  <div class="file-field">
 				<div class="btn btn-primary btn-sm float-left">
 				  <span>Choose file</span>
@@ -78,7 +70,7 @@
 				</div>
 			</br>
 			  </div>
-			  </br> 
+			  </br>  -->
 
 
 				<div class="wrap-input100 validate-input" data-validate = "Message is required">
@@ -86,6 +78,11 @@
 					<textarea id="message" class="input100" name="message" placeholder="Type your message here..."></textarea>
 					<span class="focus-input100"></span>
 				</div>
+
+				<!--capcha-->
+
+				<div class="g-recaptcha" id="rcaptcha"  data-sitekey="site key"></div>
+				<span id="captcha" style="color:red" /></span> <!-- this will show captcha errors -->
 
 				<div class="container-contact100-form-btn">
 					<button class="contact100-form-btn">
@@ -114,7 +111,7 @@
 	</div>
 
 
-
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 
 
 <!--===============================================================================================-->
@@ -151,7 +148,7 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+	<script src="js/capcha.js"></script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 	<script>

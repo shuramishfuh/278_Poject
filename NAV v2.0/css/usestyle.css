@@ -1,7 +1,12 @@
+body{
+  padding-left: 30px;
+}
+
 ol {
     counter-reset: li; 
     list-style: none; 
     padding: 0;
+    padding-left: 10px;
     text-shadow: 0 1px 0 rgba(255,255,255,.5);
     width: 500px;
   }
@@ -62,7 +67,7 @@ ol {
 }
 
 .uselinks{
-    background: #D3D4DA;
+    background: #24A0ED;
     padding-left: 5px;
     height: 2em;
     width: 200px;

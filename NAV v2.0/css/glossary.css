@@ -1,0 +1,33 @@
+body{
+  /* padding-left: 30px; */
+  margin-left: 10%;
+  width: 100%;
+}
+
+.card {
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+  border-radius: 9px;
+  border: solid 1px #24A0ED;
+  margin-bottom: 1.5em;
+  display: inline-block;
+  padding: 10px;
+  margin-left: 10px;
+  margin: 7px;
+  
+}
+.card:hover {
+  transform: scale(1.1);
+}
+
+.uselinks{
+    background: #24A0ED;
+    padding-left: 5px;
+    height: 2em;
+    width: 150px;
+    line-height: 2em;
+    text-align: left;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+}

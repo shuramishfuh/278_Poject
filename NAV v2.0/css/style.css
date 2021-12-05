@@ -63,7 +63,7 @@ a:focus {
 ----------------------------------------------------- */
 
 #sidebar {
-    width: 250px;
+    width: 230px;
     position: fixed;
     top: 0;
     left: -250px;
@@ -292,14 +292,16 @@ ul.CTAs a {
 }
 
 .showmore{
-    background-image: url('images/plant.jpg');
-    border-radius: 10px;
+    /* background-image: url('../images/bg1.jpg'); */
+    box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+    border-radius: 9px;
+    border: solid 1px #24A0ED;
     text-align: justify;
     padding: 10px;
-    color: orange;
+    color: black;
     background-repeat: no-repeat;
-  background-size: 100% 100%;
-    font-family: Verdana, Geneva, Tahoma, sans-serif black;
+    background-size: 100% 100%;
+    font-family: 12px Verdana, Geneva, Tahoma, sans-serif black;
 }
 
 /* #exampleModal{
