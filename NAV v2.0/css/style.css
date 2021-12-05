@@ -30,6 +30,7 @@ a:focus {
     transition: all 0.3s;
 }
 
+
 .navbar {
     /* padding: 15px 10px; */
     /* background: black; */
@@ -260,10 +261,10 @@ ul.CTAs a {
 .tlogo {
     top: 30px;
     text-align: center;
-    font-size: 1.1em;
+    font-size: 1.0em;
     color: white;
     transition: all 0.3s;
-    font-family: 'Times New Roman', serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #sidebar  a.tlogo:hover {
@@ -303,5 +304,5 @@ ul.CTAs a {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     font-family: 12px Verdana, Geneva, Tahoma, sans-serif black;
-    background: rgba(131, 131, 131, 0.7);
+    background: rgba(236, 236, 236, 0.7);
 }
