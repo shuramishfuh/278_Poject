@@ -247,7 +247,7 @@
                                             <div class="input-group input-group-lg">
                                             <input type="text" class="form-control" placeholder="Search by common name">
                                             <div class="input-group-btn">
-                                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                                <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
                                             </div>
                                             </div>
 
@@ -256,7 +256,7 @@
                                             <div class="input-group input-group-lg">
                                             <input type="text" class="form-control" placeholder="Search by Scientific name">
                                             <div class="input-group-btn">
-                                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                                <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
                                             </div>
                                             </div>
 
@@ -294,11 +294,14 @@
                                                 </select>
                                               </div>
 
-                                        </br>
-                                    
-                                            <div class="form-group col-xs-4">
+                                        <br>
+
+                                        <div class="row justify-content-center">
+
+                                            <div class="form-group col-xs-4 pr-3">
                                                 <label for="exampleFormControlSelect1">Annual Temperature</label>
                                                 <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Select</option>
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -307,9 +310,10 @@
                                                 </select>
                                             </div>
 
-                                            <div class="form-group col-xs-4">
+                                            <div class="form-group col-xs-4 pr-3">
                                                 <label for="exampleFormControlSelect1">Heat Zones</label>
                                                 <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Select</option>
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -321,6 +325,7 @@
                                             <div class="form-group col-xs-4">
                                                 <label for="exampleFormControlSelect1">Hardiness Zones</label>
                                                 <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Select</option>
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -329,33 +334,209 @@
                                                 </select>
                                             </div>
 
-                                            <div class="col-xs-4">
+                                            </div>
+
+                                            <hr>
+
+                                            <div class="row justify-content-center">
+
+                                            <div class="col-xs-4 pr-3">
                                                 <label for="ex3">Origin</label>
                                                 <input class="form-control" id="ex3" type="text">
                                             </div>
 
-                                            <div class="col-xs-4">
+                                            <div class="col-xs-4 pr-3">
                                                 <label for="ex3">Image Directory</label>
-                                                <input class="form-control" id="ex3" type="text" minlength="5" required>
+                                                <input class="form-control" id="ex3" type="text" minlength="5">
                                             </div>
 
-                                            </br>
-                                            Properties:
-                                            </br>
-
-                                            <div class="dropdown">
-                                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                                                <span class="caret"></span></button>
-                                                <ul class="dropdown-menu">
-                                                <li><a href="#">origin</a></li>
-                                                <li><a href="#">height</a></li>
-                                                <li><a href="#">uses</a></li>
-                                                <li><a href="#">leaf</a></li>
-                                                <li><a href="#">flower</a></li>
-                                                </ul>
                                             </div>
-                                                
-                                                </br></br>
+
+                                            <hr>
+
+
+                                            
+                                            
+                                    <div class="col-xs-12 col-md-12 col-lg-12">
+                                        <label for="ex3">Use Specific Properties</label>
+                                    </div>
+                                    
+                                    <div class="row justify-content-center">
+                                            
+                                        <div class="form-group col-xs-4 pr-3">
+                                            <label for="exampleFormControlSelect1">Properties</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>Select</option>
+                                            <option>origin</option>
+                                            <option>height</option>
+                                            <option>uses</option>
+                                            <option>leaf</option>
+                                            <option>flower</option>
+                                            </select>
+                                        </div>
+                                        
+
+
+                                        <div class="form-group col-xs-4 pr-3">
+                                        <label for="exampleFormControlSelect1">Light</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Select</option>
+                                        <option>shade</option>
+                                        <option>Full</option>
+                                        <option>part</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-xs-4 pr-3">
+                                        <label for="exampleFormControlSelect1">SoilPH</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Select</option>
+                                        <option>Acidic(pH<7)</option>
+                                        <option>Neutral(ph=7)</option>
+                                        <option>Alkaline(pH>7)</option>
+                                        </select>
+                                    </div>
+                                    
+
+                                    <div class="form-group col-xs-4 pr-3">
+                                        <label for="exampleFormControlSelect1">Soil</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Select</option>
+                                        <option>Soil</option>
+                                        <option>Sand</option>
+                                        <option>Loam</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group col-xs-4 pr-3">
+                                        <label for="exampleFormControlSelect1">Water</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Select</option>
+                                        <option>High</option>
+                                        <option>Moderate</option>
+                                        <option>Low</option>
+                                        </select>
+                                    </div>
+                                    
+                                    </div>
+
+
+                                    </br>
+                                   
+                                    <div class="row justify-content-center">
+                                      
+                                    <div class="form-group col-xs-4 pr-3">
+                                        <label for="exampleFormControlSelect1">Heat</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Select</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-xs-4 pr-3">
+                                        <label for="exampleFormControlSelect1">Drought</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Select</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-xs-4 pr-3">
+                                        <label for="exampleFormControlSelect1">Frost</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Select</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-xs-4 pr-3">
+                                        <label for="exampleFormControlSelect1">Salt</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Select</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                        </select>
+                                    </div>
+
+                                    </div>
+
+
+
+                                <br>
+                                <div class="row justify-content-center">
+                   
+                                <div class="form-group col-xs-4 pr-3">
+                                    <label for="exampleFormControlSelect1">Outdoor</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>Select</option>
+                                    <option>screen</option>
+                                    <option>mass planting</option>
+                                    <option>Hedge</option>
+                                    <option>specimen</option>
+                                    <option>Border plant</option>
+                                    <option>street</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-xs-4 pr-3">
+                                    <label for="exampleFormControlSelect1">Specialized</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>Select</option>
+                                    <option>topiary</option>
+                                    <option>indoor</option>
+                                    <option>bonsai</option>
+                                    <option>container</option>
+                                    <option>espalier</option>
+                                    <option>sport field</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-xs-4 pr-3">
+                                    <label for="exampleFormControlSelect1">Native Environment</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>Select</option>
+                                    <option>shade</option>
+                                    <option>windbreak</option>
+                                    <option>erosion control</option>
+                                    <option>pollution Tolerant/Urban</option>
+                                    <option>reclamation</option>
+                                    <option>native to lebanon</option>
+                                    </select>
+                                </div>
+
+                                    </div>
+
+                                    <br>
+
+                                    <div class="row justify-content-center">
+
+                                        <div class="form-group col-xs-4 pr-3">
+                                            <label for="exampleFormControlSelect1">Human Use</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>Select</option>
+                                            <option>edible</option>
+                                            <option>medicinal</option>
+                                            <option>cut flower / arrangement</option>
+                                            </select>
+                                        </div>
+                                        
+
+                                        <div class="form-group col-xs-4 pr-3">
+                                            <label for="exampleFormControlSelect1">Building</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>Select</option>
+                                            <option>intensive</option>
+                                            <option>extensive</option>
+                                            <option>facade</option>
+                                            <option>green roof</option>
+                                            </select>
+                                        </div>
+                                </div>
+
+                                    
                                                 
                                             </br>
 
@@ -389,193 +570,283 @@
                                     <div class="modal-body">
                                         <form>
 
-                                            <div class="row">
+                                            <div class="row justify-content-center">
                                                 
-                                            <div class="col-xs-4">
+                                            <div class="col-xs-4 pr-3">
                                                 <label for="ex3">Annual Temperature</label>
                                                 <input class="form-control" id="ex3" type="number" required>
                                             </div>
 
-                                            <div class="col-xs-4">
+                                            <div class="col-xs-4 pr-3">
                                                 <label for="ex3">Heat Zones </label>
                                                 <input class="form-control" id="ex3" type="number" required>
                                             </div>
 
-                                            <div class="col-xs-4">
+                                            </div>
+
+
+
+                                            <div class="row justify-content-center">
+
+                                            <div class="col-xs-4 pr-3">
                                                 <label for="ex3">Hardiness Zones</label>
                                                 <input class="form-control" id="ex3" type="number" required>
                                             </div>
-
-                                            </div>
-                                            
-                                            <div class="row">
                                                 
-                                            <div class="col-xs-4">
+                                            <div class="col-xs-4 pr-3">
                                                 <label for="ex3">Origin</label>
                                                 <input class="form-control" id="ex3" type="text" minlength="5" required>
                                             </div>
 
-                                            <div class="col-xs-4">
+                                            </div>
+
+
+                                            <div class="row justify-content-center">
+
+                                            <div class="col-xs-4 pr-3">
                                                 <label for="ex3">Image Directory</label>
                                                 <input class="form-control" id="ex3" type="text"  required>
                                             </div>
 
-                                            <div class="col-xs-4">
+                                            <div class="col-xs-4 pr-3">
                                                 <label for="ex3">Description</label>
                                                 <input class="form-control" id="ex3" type="text" minlength="5" required>
                                             </div>
+
                                             </div>
 
-                                        <div class="row">
-                                                
-                                            <div class="col-xs-4">
+                                        
+                                            <div class="row justify-content-center">
+
+                                            <div class="col-xs-4 pr-3">
                                                 <label for="ex3">Pronounciation</label>
                                                 <input class="form-control" id="ex3" type="text" minlength="5" required>
                                             </div>
 
-                                            <div class="col-xs-4">
+                                            <div class="col-xs-4 pr-3">
                                                 <label for="ex3">Country</label>
                                                 <input class="form-control" id="ex3" type="text" minlength="3" required>
                                             </div>
 
-                                            <div class="col-xs-4">
+                                            </div>
+
+
+                                            <div class="row justify-content-center">
+
+                                            <div class="col-xs-4 pr-3">
                                                 <label for="ex3">Scientific Name</label>
                                                 <input class="form-control" id="ex3" type="text" minlength="5" required>
                                             </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-xs-4">
+                                        
+                                            <div class="col-xs-4 pr-3">
                                                 <label for="ex3">Common Name</label>
                                                 <input class="form-control" id="ex3" type="text" minlength="5" required>
                                             </div>
 
-                                            <div class="col-xs-4">
+                                            </div>
+
+
+                                            <div class="row justify-content-center">
+
+                                            <div class="col-xs-4 pr-3">
                                                 <label for="ex3">Common Arabic Name</label>
                                                 <input class="form-control" id="ex3" type="text" minlength="5">
                                             </div>
 
-                                            <div class="col-xs-4">
+                                            <div class="col-xs-4 pr-3">
                                                 <label for="ex3">Common French Name</label>
                                                 <input class="form-control" id="ex3" type="text" minlength="5">
                                             </div>
                                         </div>
                                           
                                         <hr>
-                                        <div class="row">
                                             
-                                            <div class="dropdown col-xs-2">
-                                                <button class="btn btn-primary dropdown-toggle"
-                                                 type="button" data-toggle="dropdown">Type
-                                                <span class="caret"></span></button>
-                                                <ul class="dropdown-menu">
-                                                <li><a href="#">origin</a></li>
-                                                <li><a href="#">height</a></li>
-                                                <li><a href="#">uses</a></li>
-                                                <li><a href="#">leaf</a></li>
-                                                <li><a href="#">flower</a></li>
-                                                </ul>
+                                        <div class="row justify-content-center">
+                                            
+                                            <div class="form-group col-xs-4 pr-3">
+                                                <label for="exampleFormControlSelect1">Properties</label>
+                                                <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Select</option>
+                                                <option>origin</option>
+                                                <option>height</option>
+                                                <option>uses</option>
+                                                <option>leaf</option>
+                                                <option>flower</option>
+                                                </select>
                                             </div>
+                                            
 
-                                            <div class="dropdown col-xs-2">
-                                                <button class="btn btn-primary dropdown-toggle" 
-                                                type="button" data-toggle="dropdown">Light
-                                                <span class="caret"></span></button>
-                                                <ul class="dropdown-menu">
-                                                <li><a href="#">origin</a></li>
-                                                <li><a href="#">height</a></li>
-                                                <li><a href="#">uses</a></li>
-                                                <li><a href="#">leaf</a></li>
-                                                <li><a href="#">flower</a></li>
-                                                </ul>
-                                            </div>
 
-                                            <div class="dropdown col-xs-2">
-                                                <button class="btn btn-primary dropdown-toggle" 
-                                                type="button" data-toggle="dropdown">SoilPH
-                                                <span class="caret"></span></button>
-                                                <ul class="dropdown-menu">
-                                                <li><a href="#">Acidic(pH<7)</a></li>
-                                                <li><a href="#">Neutral(ph=7)</a></li>
-                                                <li><a href="#">Alkaline(pH>7)</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="dropdown col-xs-2">
-                                                <button class="btn btn-primary dropdown-toggle" 
-                                                type="button" data-toggle="dropdown">Soil
-                                                <span class="caret"></span></button>
-                                                <ul class="dropdown-menu">
-                                                <li><a href="#">Clay</a></li>
-                                                <li><a href="#">Sand</a></li>
-                                                <li><a href="#">Loam</a></li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="dropdown col-xs-2">
-                                                <button class="btn btn-primary dropdown-toggle" 
-                                                type="button" data-toggle="dropdown">Water
-                                                <span class="caret"></span></button>
-                                                <ul class="dropdown-menu">
-                                                <li><a href="#">High</a></li>
-                                                <li><a href="#">Moderate</a></li>
-                                                <li><a href="#">Low</a></li>
-                                                </ul>
-                                            </div>
+                                            <div class="form-group col-xs-4 pr-3">
+                                            <label for="exampleFormControlSelect1">Light</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>Select</option>
+                                            <option>shade</option>
+                                            <option>Full</option>
+                                            <option>part</option>
+                                            </select>
                                         </div>
 
+                                        <div class="form-group col-xs-4 pr-3">
+                                            <label for="exampleFormControlSelect1">SoilPH</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>Select</option>
+                                            <option>Acidic(pH<7)</option>
+                                            <option>Neutral(ph=7)</option>
+                                            <option>Alkaline(pH>7)</option>
+                                            </select>
+                                        </div>
+                                        
+
+                                        <div class="form-group col-xs-4 pr-3">
+                                            <label for="exampleFormControlSelect1">Soil</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>Select</option>
+                                            <option>Soil</option>
+                                            <option>Sand</option>
+                                            <option>Loam</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group col-xs-4 pr-3">
+                                            <label for="exampleFormControlSelect1">Water</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>Select</option>
+                                            <option>High</option>
+                                            <option>Moderate</option>
+                                            <option>Low</option>
+                                            </select>
+                                        </div>
+                                        
+                                        </div>
+
+
                                         </br>
-                                        <div class="row"></div>
+                                        
+                                    <hr>
+                                        <div class="row justify-content-center">
 
                                         <div class="col-xs-12 col-md-12 col-lg-12">
                                             <label for="ex3">Tolerance:</label>
                                         </div>
-                                            <hr>
-                                        
-                                        <div class="row">
-                                            <div class="col-xs-2">
-                                                <button class="btn btn-primary dropdown-toggle" 
-                                                type="button" data-toggle="dropdown">Heat
-                                                <span class="caret"></span></button>
-                                                <ul class="dropdown-menu">
-                                                <li><a href="#">Yes</a></li>
-                                                <li><a href="#">No</a></li>
-                                                </ul>
-                                            </div>
+                                          
+                                        <div class="form-group col-xs-4 pr-3">
+                                            <label for="exampleFormControlSelect1">Heat</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>Select</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            </select>
+                                        </div>
     
-                                            <div class="col-xs-3">
-                                                <button class="btn btn-primary dropdown-toggle" 
-                                                type="button" data-toggle="dropdown">Drought
-                                                <span class="caret"></span></button>
-                                                <ul class="dropdown-menu">
-                                                <li><a href="#">Yes</a></li>
-                                                <li><a href="#">No</a></li>
-                                                </ul>
-                                            </div>
+                                        <div class="form-group col-xs-4 pr-3">
+                                            <label for="exampleFormControlSelect1">Drought</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>Select</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            </select>
+                                        </div>
     
-                                            <div class="col-xs-2">
-                                                <button class="btn btn-primary dropdown-toggle" 
-                                                type="button" data-toggle="dropdown">Frost
-                                                <span class="caret"></span></button>
-                                                <ul class="dropdown-menu">
-                                                <li><a href="#">Yes</a></li>
-                                                <li><a href="#">No</a></li>
-                                                </ul>
-                                            </div>
+                                        <div class="form-group col-xs-4 pr-3">
+                                            <label for="exampleFormControlSelect1">Frost</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>Select</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            </select>
+                                        </div>
     
-                                            <div class="col-xs-3">
-                                                <button class="btn btn-primary dropdown-toggle" 
-                                                type="button" data-toggle="dropdown">salt
-                                                <span class="caret"></span></button>
-                                                <ul class="dropdown-menu">
-                                                <li><a href="#">Yes</a></li>
-                                                <li><a href="#">No</a></li>
-                                                </ul>
-                                            </div>
-    
+                                        <div class="form-group col-xs-4 pr-3">
+                                            <label for="exampleFormControlSelect1">Salt</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <option>Select</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                            </select>
                                         </div>
 
                                         </div>
+
+
+
+                                    <hr>
+                                    <div class="row justify-content-center">
+
+                                    <div class="col-xs-12 col-md-12 col-lg-12">
+                                        <label for="ex3">Use:</label>
+                                    </div>
+                       
+                                    <div class="form-group col-xs-4 pr-3">
+                                        <label for="exampleFormControlSelect1">Outdoor</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Select</option>
+                                        <option>screen</option>
+                                        <option>mass planting</option>
+                                        <option>Hedge</option>
+                                        <option>specimen</option>
+                                        <option>Border plant</option>
+                                        <option>street</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-xs-4 pr-3">
+                                        <label for="exampleFormControlSelect1">Specialized</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Select</option>
+                                        <option>topiary</option>
+                                        <option>indoor</option>
+                                        <option>bonsai</option>
+                                        <option>container</option>
+                                        <option>espalier</option>
+                                        <option>sport field</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-xs-4 pr-3">
+                                        <label for="exampleFormControlSelect1">Native Environment</label>
+                                        <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>Select</option>
+                                        <option>shade</option>
+                                        <option>windbreak</option>
+                                        <option>erosion control</option>
+                                        <option>pollution Tolerant/Urban</option>
+                                        <option>reclamation</option>
+                                        <option>native to lebanon</option>
+                                        </select>
+                                    </div>
+
+                                        </div>
+
+                                        <br>
+
+                                        <div class="row justify-content-center">
+
+                                            <div class="form-group col-xs-4 pr-3">
+                                                <label for="exampleFormControlSelect1">Human Use</label>
+                                                <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Select</option>
+                                                <option>edible</option>
+                                                <option>medicinal</option>
+                                                <option>cut flower / arrangement</option>
+                                                </select>
+                                            </div>
+                                            
+
+                                            <div class="form-group col-xs-4 pr-3">
+                                                <label for="exampleFormControlSelect1">Building</label>
+                                                <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Select</option>
+                                                <option>intensive</option>
+                                                <option>extensive</option>
+                                                <option>facade</option>
+                                                <option>green roof</option>
+                                                </select>
+                                            </div>
+                                    </div>
+
+
+                                </div>
 
                                     </br></br></br>
                                             
